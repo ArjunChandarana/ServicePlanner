@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2233c32aeea45dda3153aea9798d8bf" Name="Diagram1">
+        <EntityTypeShape EntityType="AutomobileDBModel.Brand" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Customer" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.DealerBrand" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Dealer" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Mechanic" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Model" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.SelectedService" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.ServiceBooking" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Service" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Users_Receptionist_Advisior" Width="1.5" PointX="8.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomobileDBModel.Vehicle" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="AutomobileDBModel.FK_DealerBrands_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_Vehicles_Brands" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_Customers_Dealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_Vehicles_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_DealerBrands_Dealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_Mechanics_Dealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_ServiceBookings_Dealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_Vehicles_Models" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_SelectedServices_ServiceBookings" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_SelectedServices_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomobileDBModel.FK_ServiceBookings_Vehicles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
