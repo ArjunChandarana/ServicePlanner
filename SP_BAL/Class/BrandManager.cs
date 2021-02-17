@@ -1,4 +1,5 @@
 ﻿using SP_BAL.Interfaces;
+using SP_DAL.Database;
 using SP_DAL.Repository;
 using SP_Models;
 using System;
@@ -17,9 +18,26 @@ namespace SP_BAL.Class
         {
             _IBrand = brand;
         }
+
+      
         public List<Brands> getAllBrands()
         {
             return _IBrand.getAllBrands();
+        }
+
+        public string CreateBrand(Brand brand)
+        {
+            return _IBrand.CreateBrand(brand);
+        }
+
+        public string UpdateBrand(Brand brand)
+        {
+            return _IBrand.UpdateBrand(brand);
+        }
+
+        public bool IsActive(int BrandId)
+        {
+            return _IBrand.IsActive(BrandId);
         }
     }
 }

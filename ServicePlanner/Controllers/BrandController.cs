@@ -17,10 +17,12 @@ namespace ServicePlanner.Controllers
         {
             _IBrandManager = brandManager;
         }
+
+
         // GET: api/Brand
         public IEnumerable<string> Get()
         {
-            return 
+            return
         }
 
         // GET: api/Brand/5

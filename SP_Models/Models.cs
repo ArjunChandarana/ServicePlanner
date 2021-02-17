@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SP_Models
 {
-   public class Brands
+   public class Models
     {
-        public int BrandId { get; set; }
+        public int ModelId { get; set; }
         public string Name { get; set; }
         public bool IsActive { get; set; }
     }

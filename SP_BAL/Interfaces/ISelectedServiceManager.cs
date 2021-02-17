@@ -6,14 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace SP_BAL.Interfaces
 {
-    public interface IBrandManager
+   public interface ISelectedServiceManager
     {
-        List<Brands> getAllBrands();
-        string CreateBrand(Brand brand);
-        string UpdateBrand(Brand brand);
-        bool IsActive(int BrandId);
+        string UpdateSelectedService(SelectedService sservice);
+        List<SelectedServices> getAllSServices();
     }
 }

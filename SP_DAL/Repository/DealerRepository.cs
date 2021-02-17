@@ -9,25 +9,22 @@ using System.Threading.Tasks;
 
 namespace SP_DAL.Repository
 {
-   public class BrandRepository : IBrand
+  public  class DealerRepository:IDealer
     {
-       
-        
-            
-         private readonly Database.DBEntities dbcontext = new DBEntities();
+        private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string CreateBrand(Brand brand)
+        public string CreateDealer(Dealer dealer)
         {
             try
             {
-                if (brand != null)
+                if (dealer != null)
                 {
-                    Database.Brand entity = new Database.Brand();
+                    Database.Dealer entity = new Database.Dealer();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Brand, Database.Brand>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Dealer, Database.Dealer>());
                     var mapper = new Mapper(config);
 
-                    entity = mapper.Map<Database.Brand>(brand);
+                    entity = mapper.Map<Database.Dealer>(dealer);
 
                     dbcontext.SaveChanges();
 
@@ -41,17 +38,17 @@ namespace SP_DAL.Repository
             }
         }
 
-        public string UpdateBrand(Brand brand)
+        public string UpdateDealer(Dealer dealer)
         {
             try
             {
-                var entity = dbcontext.Brands.Find(brand.BrandId);
+                var entity = dbcontext.Brands.Find(dealer.DealerId);
 
                 if (entity != null)
                 {
 
-                    entity.Name = brand.Name;
-                    entity.IsActive = brand.IsActive;
+                    entity.Name = dealer.Name;
+                    entity.IsActive = dealer.IsActive;
                     dbcontext.SaveChanges();
 
                     return "Updated";
@@ -65,9 +62,9 @@ namespace SP_DAL.Repository
             }
         }
 
-        public bool IsActive(int BrandId)
+        public bool IsActive(int DealerId)
         {
-            Database.Brand entity = new Database.Brand();
+            Database.Dealer entity = new Database.Dealer();
 
             if (entity.IsActive)
             {
@@ -75,31 +72,30 @@ namespace SP_DAL.Repository
             }
             return false;
         }
-        public List<Brands> getAllBrands()
+
+        public List<Dealers> getAllDealers()
         {
 
-            var entities = dbcontext.Brands.ToList();
+            var entities = dbcontext.Dealers.ToList();
 
-            List<Brands> brands = new List<Brands>();
+            List<Dealers> dealers = new List<Dealers>();
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Brand, Brands>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Dealer, Dealers>());
             var mapper = new Mapper(config);
 
             if (entities != null)
             {
                 foreach (var item in entities)
                 {
-                    Brands brand = new Brands();
-                    brand = mapper.Map<Brands>(item);
-                    brands.Add(brand);
+                    Dealers dealer = new Dealers();
+                    dealer = mapper.Map<Dealers>(item);
+                    dealers.Add(dealer);
                 }
             }
-            return brands;
+            return dealers;
 
-        
-         }
 
-        
-    }
-    }
+        }
+}
 
+    

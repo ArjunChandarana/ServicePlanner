@@ -14,6 +14,14 @@ namespace SP_BAL.Helper
         protected override void Initialize()
         {
             Container.RegisterType<IBrand, BrandRepository>();
+            Container.RegisterType<IDealer, DealerRepository>();
+            Container.RegisterType<IVehicle, VehicleRepository>();
+            Container.RegisterType<ICustomer, CustomerRepository>();
+            Container.RegisterType<IService, ServiceRepository>();
+            Container.RegisterType<IMechanic, MechanicRepository>();
+            Container.RegisterType<IModel, ModelRepository>();
+            Container.RegisterType<IUsers_Receptionist_Advisior, Users_Receptionist_AdvisiorRepository>();
+            Container.RegisterType<ISelectedService, SelectedServiceRepository>();
         }
     }
 }

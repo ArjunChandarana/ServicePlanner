@@ -62,10 +62,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Class\BrandManager.cs" />
+    <Compile Include="Class\CustomerManager.cs" />
+    <Compile Include="Class\DealerManager.cs" />
+    <Compile Include="Class\MechanicManager.cs" />
+    <Compile Include="Class\ModelManager.cs" />
+    <Compile Include="Class\SelectedServiceManager.cs" />
+    <Compile Include="Class\ServiceManager.cs" />
+    <Compile Include="Class\UserManager.cs" />
+    <Compile Include="Class\VehicleManager.cs" />
     <Compile Include="Helper\UnityRepositoryHelper.cs" />
     <Compile Include="Interfaces\IBrandManager.cs" />
+    <Compile Include="Interfaces\ICustomerManager.cs" />
+    <Compile Include="Interfaces\IDealerManager.cs" />
+    <Compile Include="Interfaces\IMechanicManager.cs" />
+    <Compile Include="Interfaces\IModelManager.cs" />
+    <Compile Include="Interfaces\ISelectedServiceManager.cs" />
+    <Compile Include="Interfaces\IServiceManager.cs" />
+    <Compile Include="Interfaces\IUserManager.cs" />
+    <Compile Include="Interfaces\IVehicleManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

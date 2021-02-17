@@ -6,14 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace SP_BAL.Interfaces
 {
-    public interface IBrandManager
+   public interface IVehicleManager
     {
-        List<Brands> getAllBrands();
-        string CreateBrand(Brand brand);
-        string UpdateBrand(Brand brand);
-        bool IsActive(int BrandId);
+        
+        string CreateVehicle(Vehicle vehicle);
+        string UpdateVehicle(Vehicle vehicle);
+        List<Vehicles> getAllVehicles();
     }
 }
