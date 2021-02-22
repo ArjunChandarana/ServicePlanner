@@ -19,8 +19,8 @@ namespace SP_Models
         public int ModelId { get; set; }
         public string FuelType { get; set; }
 
-        public virtual Brand Brand { get; set; }
-        public virtual Customer Customer { get; set; }
-        public virtual Model Model { get; set; }
+        public virtual Brands Brand { get; set; }
+        public virtual Customers Customer { get; set; }
+        public virtual Models Model { get; set; }
     }
 }

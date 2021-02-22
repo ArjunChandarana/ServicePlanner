@@ -19,7 +19,7 @@ namespace SP_BAL.Class
             _IModel = model;
         }
 
-        public string AddModel(Model model)
+        public string AddModel(Models model)
         {
             return _IModel.AddModel(model);
         }
@@ -34,9 +34,19 @@ namespace SP_BAL.Class
             return _IModel.IsActive(ModelId);
         }
 
-        public string UpdateModel(Model model)
+        public string UpdateModel(Models model)
         {
             return _IModel.UpdateModel(model);
+        }
+
+        public Models getModel(int ModelId)
+        {
+            return _IModel.getModel(ModelId);
+        }
+
+        public string DeleteModel(int ModelId)
+        {
+            return _IModel.DeleteModel(ModelId);
         }
     }
 }

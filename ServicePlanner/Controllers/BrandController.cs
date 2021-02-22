@@ -1,5 +1,6 @@
 ﻿using SP_BAL.Class;
 using SP_BAL.Interfaces;
+using SP_Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,30 +21,45 @@ namespace ServicePlanner.Controllers
 
 
         // GET: api/Brand
-        public IEnumerable<string> Get()
+        [HttpGet]
+        public IHttpActionResult Get()
         {
-            return
+            var Brands = _IBrandManager.getAllBrands();
+            return Ok(Brands);
         }
 
         // GET: api/Brand/5
-        public string Get(int id)
+        [HttpGet]
+        [Route("api/Brand/{BrandId}")]
+        public IHttpActionResult Get(int BrandId)
         {
-            return "value";
+            var brandid = _IBrandManager.getBrand(BrandId);
+
+            return Ok(brandid);
         }
 
         // POST: api/Brand
-        public void Post([FromBody]string value)
+
+        public IHttpActionResult Post([FromBody]Brands brand)
         {
+            var response = _IBrandManager.CreateBrand(brand);
+            return Ok(response);
         }
 
         // PUT: api/Brand/5
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put([FromBody]Brands brand)
         {
+            var response = _IBrandManager.UpdateBrand(brand);
+            return Ok(response);
         }
 
         // DELETE: api/Brand/5
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("api/Brand/{BrandId}")]
+        public IHttpActionResult Delete(int BrandId)
         {
+            var response = _IBrandManager.DeleteBrand(BrandId);
+            return Ok(response);
         }
     }
 }

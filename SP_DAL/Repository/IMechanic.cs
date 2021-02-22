@@ -10,9 +10,11 @@ namespace SP_DAL.Repository
 {
    public interface IMechanic
     {
-        string AddMechanic(Mechanic mechanic);
-        string UpdateMechanic(Mechanic mechanic);
+        string AddMechanic(Mechanics mechanic);
+        string UpdateMechanic(Mechanics mechanic);
         List<Mechanics> getAllMechanics();
         //bool IsActive(int MechanicId);
+        Mechanics getMechanic(int MechanicId);
+        string DeleteMechanic(int MechanicId);
     }
 }

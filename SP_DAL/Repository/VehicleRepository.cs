@@ -12,7 +12,7 @@ namespace SP_DAL.Repository
    public class VehicleRepository : IVehicle
     {
         private readonly Database.DBEntities dbcontext = new DBEntities();
-        public string CreateVehicle(Vehicle vehicle)
+        public string CreateVehicle(Vehicles vehicle)
         {
             try
             {
@@ -20,7 +20,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Vehicle entity = new Database.Vehicle();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Vehicle, Database.Vehicle>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Vehicles, Database.Vehicle>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Vehicle>(vehicle);
@@ -58,9 +58,39 @@ namespace SP_DAL.Repository
             return vehicles;
         }
 
-       
 
-        public string UpdateVehicle(Vehicle vehicle)
+        public Vehicles getVehicle(int VehicleId)
+        {
+            Database.Vehicle entity = new Database.Vehicle();
+            entity = dbcontext.Vehicles.Find(VehicleId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Vehicle, Vehicles>());
+            var mapper = new Mapper(config);
+
+            Vehicles vehicle = mapper.Map<Vehicles>(entity);
+
+            return vehicle;
+
+        }
+
+
+        public string DeleteVehicle(int VehicleId)
+        {
+            Database.Vehicle entity = new Database.Vehicle();
+            entity = dbcontext.Vehicles.Find(VehicleId);
+
+            if (entity != null)
+            {
+                dbcontext.Vehicles.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
+        }
+
+
+
+        public string UpdateVehicle(Vehicles vehicle)
         {
             try
             {

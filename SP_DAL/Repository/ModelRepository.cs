@@ -13,7 +13,7 @@ namespace SP_DAL.Repository
     {
         private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string AddModel(Model model)
+        public string AddModel(Models model)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Model entity = new Database.Model();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Model, Database.Model>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Models, Database.Model>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Model>(model);
@@ -37,6 +37,36 @@ namespace SP_DAL.Repository
                 return ex.Message;
             }
         }
+
+
+        public Models getModel(int ModelId)
+        {
+            Database.Model entity = new Database.Model();
+            entity = dbcontext.Models.Find(ModelId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Model, Models>());
+            var mapper = new Mapper(config);
+
+            Models model = mapper.Map<Models>(entity);
+            return model;
+
+        }
+
+
+        public string DeleteModel(int ModelId)
+        {
+            Database.Model entity = new Database.Model();
+            entity = dbcontext.Models.Find(ModelId);
+
+            if (entity != null)
+            {
+                dbcontext.Models.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
+        }
+
 
         public List<Models> getAllModels()
         {
@@ -70,7 +100,7 @@ namespace SP_DAL.Repository
             return false;
         }
 
-        public string UpdateModel(Model model)
+        public string UpdateModel(Models model)
         {
             try
             {

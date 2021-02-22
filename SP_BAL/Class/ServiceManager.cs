@@ -20,7 +20,7 @@ namespace SP_BAL.Class
             _IService = service;
         }
 
-        public string CreateService(Service service)
+        public string CreateService(Services service)
         {
             return _IService.CreateService(service);
         }
@@ -30,9 +30,19 @@ namespace SP_BAL.Class
             return _IService.getAllServices();
         }
 
-        public string UpdateService(Service service)
+        public string UpdateService(Services service)
         {
             return _IService.UpdateService(service);
+        }
+
+        public Services getService(int ServiceId)
+        {
+            return _IService.getService(ServiceId);
+        }
+
+        public string DeleteService(int ServiceId)
+        {
+            return _IService.DeleteService(ServiceId);
         }
     }
 }

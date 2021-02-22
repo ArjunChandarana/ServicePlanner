@@ -15,7 +15,7 @@ namespace SP_DAL.Repository
 
         private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string CreateService(Service service)
+        public string CreateService(Services service)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Service entity = new Database.Service();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Service, Database.Service>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Services, Database.Service>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Service>(service);
@@ -61,8 +61,39 @@ namespace SP_DAL.Repository
             return services;
         }
 
-        
-        public string UpdateService(Service service)
+
+
+        public Services getService(int ServiceId)
+        {
+            Database.Service entity = new Database.Service();
+            entity = dbcontext.Services.Find(ServiceId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Service, Services>());
+            var mapper = new Mapper(config);
+
+            Services service = mapper.Map<Services>(entity);
+            return service;
+
+        }
+
+
+        public string DeleteService(int ServiceId)
+        {
+            Database.Service entity = new Database.Service();
+            entity = dbcontext.Services.Find(ServiceId);
+
+            if (entity != null)
+            {
+                dbcontext.Services.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
+        }
+
+
+
+        public string UpdateService(Services service)
         {
             try
             {

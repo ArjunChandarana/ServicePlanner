@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace SP_DAL.Repository
 {
-  public  class DealerRepository:IDealer
+    public class DealerRepository : IDealer
     {
         private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string CreateDealer(Dealer dealer)
+        public string CreateDealer(Dealers dealer)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Dealer entity = new Database.Dealer();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Dealer, Database.Dealer>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Dealers, Database.Dealer>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Dealer>(dealer);
@@ -38,11 +38,11 @@ namespace SP_DAL.Repository
             }
         }
 
-        public string UpdateDealer(Dealer dealer)
+        public string UpdateDealer(Dealers dealer)
         {
             try
             {
-                var entity = dbcontext.Brands.Find(dealer.DealerId);
+                var entity = dbcontext.Dealers.Find(dealer.DealerId);
 
                 if (entity != null)
                 {
@@ -73,6 +73,38 @@ namespace SP_DAL.Repository
             return false;
         }
 
+
+
+        public Dealers getDealer(int DealerId)
+        {
+            Database.Dealer entity = new Database.Dealer();
+            entity = dbcontext.Dealers.Find(DealerId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Dealer, Dealers>());
+            var mapper = new Mapper(config);
+
+            Dealers dealer = mapper.Map<Dealers>(entity);
+            return dealer;
+
+        }
+
+
+        public string DeleteDealer(int DealerId)
+        {
+            Database.Dealer entity = new Database.Dealer();
+            entity = dbcontext.Dealers.Find(DealerId);
+
+            if (entity != null)
+            {
+                dbcontext.Dealers.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
+        }
+
+
+
         public List<Dealers> getAllDealers()
         {
 
@@ -96,6 +128,7 @@ namespace SP_DAL.Repository
 
 
         }
-}
+    }
 
+}
     

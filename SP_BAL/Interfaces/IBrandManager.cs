@@ -12,8 +12,11 @@ namespace SP_BAL.Interfaces
     public interface IBrandManager
     {
         List<Brands> getAllBrands();
-        string CreateBrand(Brand brand);
-        string UpdateBrand(Brand brand);
+        string CreateBrand(Brands brand);
+        string UpdateBrand(Brands brand);
         bool IsActive(int BrandId);
+        Brands getBrand(int BrandId);
+        string DeleteBrand(int BrandId);
+
     }
 }

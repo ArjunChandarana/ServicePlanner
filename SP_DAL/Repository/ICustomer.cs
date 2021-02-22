@@ -11,9 +11,13 @@ namespace SP_DAL.Repository
 {
    public interface ICustomer
     {
-        string AddCustomer(Customer customer);
-        string UpdateCustomer(Customer customer);
+        string AddCustomer(Customers customer);
+        string UpdateCustomer(Customers customer);
         List<Customers> getAllCustomers();
+
+        Customers getCustomer(int CustomerId);
+        string DeleteCustomer(int CustomerId);
+
         //bool IsActive(int CustomerId);
     }
 }

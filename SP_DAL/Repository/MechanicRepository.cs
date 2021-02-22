@@ -13,7 +13,7 @@ namespace SP_DAL.Repository
     {
         private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string AddMechanic(Mechanic mechanic)
+        public string AddMechanic(Mechanics mechanic)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Mechanic entity = new Database.Mechanic();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Mechanic, Database.Mechanic>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Mechanics, Database.Mechanic>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Mechanic>(mechanic);
@@ -37,6 +37,37 @@ namespace SP_DAL.Repository
                 return ex.Message;
             }
         }
+
+
+        public Mechanics getMechanic(int MechanicId)
+        {
+            Database.Mechanic entity = new Database.Mechanic();
+            entity = dbcontext.Mechanics.Find(MechanicId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Mechanic, Mechanics>());
+            var mapper = new Mapper(config);
+
+            Mechanics mechanic = mapper.Map<Mechanics>(entity);
+            return mechanic;
+
+        }
+
+
+        public string DeleteMechanic(int MechanicId)
+        {
+            Database.Mechanic entity = new Database.Mechanic();
+            entity = dbcontext.Mechanics.Find(MechanicId);
+
+            if (entity != null)
+            {
+                dbcontext.Mechanics.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
+        }
+
+
 
         public List<Mechanics> getAllMechanics()
         {
@@ -60,7 +91,7 @@ namespace SP_DAL.Repository
         }
 
 
-        public string UpdateMechanic(Mechanic mechanic)
+        public string UpdateMechanic(Mechanics mechanic)
         {
             try
             {

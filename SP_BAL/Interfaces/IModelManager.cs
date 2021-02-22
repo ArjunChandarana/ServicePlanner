@@ -10,9 +10,11 @@ namespace SP_BAL.Interfaces
 {
    public  interface IModelManager
     {
-        string AddModel(Model model);
-        string UpdateModel(Model model);
+        string AddModel(Models model);
+        string UpdateModel(Models model);
         List<Models> getAllModels();
         bool IsActive(int ModelId);
+        Models getModel(int ModelId);
+        string DeleteModel(int ModelId);
     }
 }

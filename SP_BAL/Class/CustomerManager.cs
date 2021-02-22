@@ -19,7 +19,7 @@ namespace SP_BAL.Class
             _ICustomer = customer;
         }
 
-        public string AddCustomer(Customer customer)
+        public string AddCustomer(Customers customer)
         {
             return _ICustomer.AddCustomer(customer);
         }
@@ -29,9 +29,19 @@ namespace SP_BAL.Class
             return _ICustomer.getAllCustomers();
         }
 
-        public string UpdateCustomer(Customer customer)
+        public string UpdateCustomer(Customers customer)
         {
             return _ICustomer.UpdateCustomer(customer);
+        }
+
+       public string DeleteCustomer(int CustomerId)
+        {
+            return _ICustomer.DeleteCustomer(CustomerId);
+        }
+
+        public Customers getCustomer(int CustomerId)
+        {
+            return _ICustomer.getCustomer(CustomerId);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace SP_BAL.Class
         {
             _IMechanic = mechanic;
         }
-        public string AddMechanic(Mechanic mechanic)
+        public string AddMechanic(Mechanics mechanic)
         {
             return _IMechanic.AddMechanic(mechanic);   
         }
@@ -28,11 +28,19 @@ namespace SP_BAL.Class
             return _IMechanic.getAllMechanics();
         }
 
-        public string UpdateMechanic(Mechanic mechanic)
+        public string UpdateMechanic(Mechanics mechanic)
         {
             return _IMechanic.UpdateMechanic(mechanic);
         }
 
-       
+       public Mechanics getMechanic(int MechanicId)
+        {
+            return _IMechanic.getMechanic(MechanicId);
+        }
+
+        public string DeleteMechanic(int MechanicId)
+        {
+            return _IMechanic.DeleteMechanic(MechanicId);
+        }
     }
 }

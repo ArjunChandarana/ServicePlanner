@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SP_BAL.Class
 {
-    class VehicleManager : IVehicleManager
+    public class VehicleManager : IVehicleManager
     {
         private readonly IVehicle _IVehicle;
 
@@ -19,7 +19,7 @@ namespace SP_BAL.Class
             _IVehicle = vehicle;
         }
 
-        public string CreateVehicle(Vehicle vehicle)
+        public string CreateVehicle(Vehicles vehicle)
         {
             return _IVehicle.CreateVehicle(vehicle);
         }
@@ -29,9 +29,18 @@ namespace SP_BAL.Class
             return _IVehicle.getAllVehicles();
         }
 
-        public string UpdateVehicle(Vehicle vehicle)
+        public string UpdateVehicle(Vehicles vehicle)
         {
             return _IVehicle.UpdateVehicle(vehicle);
+        }
+
+       public  Vehicles getVehicle(int VehicleId)
+        {
+            return _IVehicle.getVehicle(VehicleId);
+        }
+        public string DeleteVehicle(int VehicleId)
+        {
+            return _IVehicle.DeleteVehicle(VehicleId);
         }
     }
 }

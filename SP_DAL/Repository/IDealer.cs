@@ -10,9 +10,11 @@ namespace SP_DAL.Repository
 {
    public interface IDealer
     {
-        string CreateDealer(Dealer dealer);
-        string UpdateDealer(Dealer dealer);
+        string CreateDealer(Dealers dealer);
+        string UpdateDealer(Dealers dealer);
         List<Dealers> getAllDealers();
         bool IsActive(int DealerId);
+        Dealers getDealer(int DealerId);
+        string DeleteDealer(int DealerId);
     }
 }

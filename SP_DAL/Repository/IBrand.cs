@@ -11,9 +11,11 @@ namespace SP_DAL.Repository
 {
    public  interface IBrand
     {
-        string CreateBrand(Brand brand);
-        string UpdateBrand(Brand brand);
+        string CreateBrand(Brands brand);
+        string UpdateBrand(Brands brand);
         List<Brands> getAllBrands();
         bool IsActive(int BrandId);
+        Brands getBrand(int BrandId);
+        string DeleteBrand(int BrandId);
     }
 }

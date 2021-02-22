@@ -23,14 +23,18 @@ namespace SP_BAL.Class
 
 
          
-        public string CreateDealer(Dealer dealer)
+        public string CreateDealer(Dealers dealer)
         {
             return _IDealer.CreateDealer(dealer);
         }
 
-        public string UpdateDealer(Dealer dealer)
+        public string UpdateDealer(Dealers dealer)
         {
             return _IDealer.UpdateDealer(dealer);
+        }
+       public Dealers getDealer(int DealerId)
+        {
+            return _IDealer.getDealer(DealerId);
         }
 
         public List<Dealers> getAllDealers()
@@ -42,6 +46,13 @@ namespace SP_BAL.Class
         {
             return _IDealer.IsActive(DealerId); 
         }
+
+        public string DeleteDealer(int DealerId)
+        {
+            return _IDealer.DeleteDealer(DealerId);
+        }
+
+
     }
-    }
+    
 }

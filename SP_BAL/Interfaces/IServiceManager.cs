@@ -10,9 +10,11 @@ namespace SP_BAL.Interfaces
 {
    public  interface IServiceManager
     {
-        string CreateService(Service service);
-        string UpdateService(Service service);
+        string CreateService(Services service);
+        string UpdateService(Services service);
         List<Services> getAllServices();
         // bool IsActive(int ServiceId);
+        Services getService(int ServiceId);
+        string DeleteService(int ServiceId);
     }
 }

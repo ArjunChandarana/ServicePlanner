@@ -14,18 +14,18 @@ namespace SP_DAL.Repository
         private readonly Database.DBEntities dbcontext = new DBEntities();
 
 
-        public string AddCustomer(Customer customer)
+        public string AddCustomer(Customers customer)
         {
             try
             {
                 if (customer != null)
                 {
-                    Database.Vehicle entity = new Database.Vehicle();
+                    Database.Customer entity = new Database.Customer();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Vehicle, Database.Vehicle>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Customers, Database.Customer>());
                     var mapper = new Mapper(config);
 
-                    entity = mapper.Map<Database.Vehicle>(customer);
+                    entity = mapper.Map<Database.Customer>(customer);
 
                     dbcontext.SaveChanges();
 
@@ -62,7 +62,7 @@ namespace SP_DAL.Repository
 
        
 
-        public string UpdateCustomer(Customer customer)
+        public string UpdateCustomer(Customers customer)
         {
             try
             {
@@ -86,6 +86,36 @@ namespace SP_DAL.Repository
             }
         }
 
-       
+
+        public Customers getCustomer(int CustomerId)
+        {
+            Database.Customer entity = new Database.Customer();
+            entity = dbcontext.Customers.Find(CustomerId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Customer, Customers>());
+            var mapper = new Mapper(config);
+
+            Customers customer = mapper.Map<Customers>(entity);
+            return customer;
+
+        }
+
+
+        public string DeleteCustomer(int CustomerId)
+        {
+            Database.Customer entity = new Database.Customer();
+            entity = dbcontext.Customers.Find(CustomerId);
+
+            if (entity != null)
+            {
+                dbcontext.Customers.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "null";
+        
+        }
+
+
     }
 }

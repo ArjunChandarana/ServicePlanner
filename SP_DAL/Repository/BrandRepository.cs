@@ -16,7 +16,7 @@ namespace SP_DAL.Repository
             
          private readonly Database.DBEntities dbcontext = new DBEntities();
 
-        public string CreateBrand(Brand brand)
+        public string CreateBrand(Brands brand)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace SP_DAL.Repository
                 {
                     Database.Brand entity = new Database.Brand();
 
-                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Brand, Database.Brand>());
+                    var config = new MapperConfiguration(cfg => cfg.CreateMap<Brands, Database.Brand>());
                     var mapper = new Mapper(config);
 
                     entity = mapper.Map<Database.Brand>(brand);
@@ -41,7 +41,7 @@ namespace SP_DAL.Repository
             }
         }
 
-        public string UpdateBrand(Brand brand)
+        public string UpdateBrand(Brands brand)
         {
             try
             {
@@ -63,6 +63,35 @@ namespace SP_DAL.Repository
             {
                 return ex.Message;
             }
+        }
+
+
+        public Brands getBrand(int BrandId)
+        {
+            Database.Brand entity = new Database.Brand();
+            entity = dbcontext.Brands.Find(BrandId);
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.Brand, Brands>());
+            var mapper = new Mapper(config);
+
+           Brands brand = mapper.Map<Brands>(entity);
+            return brand;
+
+        }
+
+
+        public string DeleteBrand(int BrandId)
+        {
+            Database.Brand entity = new Database.Brand();
+            entity = dbcontext.Brands.Find(BrandId);
+
+            if(entity != null)
+            {
+                dbcontext.Brands.Remove(entity);
+                dbcontext.SaveChanges();
+                return "Successfully Deleted";
+            }
+            return "Done";
         }
 
         public bool IsActive(int BrandId)

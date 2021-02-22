@@ -25,12 +25,12 @@ namespace SP_BAL.Class
             return _IBrand.getAllBrands();
         }
 
-        public string CreateBrand(Brand brand)
+        public string CreateBrand(Brands brand)
         {
             return _IBrand.CreateBrand(brand);
         }
 
-        public string UpdateBrand(Brand brand)
+        public string UpdateBrand(Brands brand)
         {
             return _IBrand.UpdateBrand(brand);
         }
@@ -38,6 +38,16 @@ namespace SP_BAL.Class
         public bool IsActive(int BrandId)
         {
             return _IBrand.IsActive(BrandId);
+        }
+
+        public Brands getBrand(int BrandId)
+        {
+            return _IBrand.getBrand(BrandId);
+        }
+
+       public string DeleteBrand(int BrandId)
+        {
+            return _IBrand.DeleteBrand(BrandId);
         }
     }
 }

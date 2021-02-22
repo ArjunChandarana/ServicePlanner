@@ -11,8 +11,10 @@ namespace SP_BAL.Interfaces
    public interface IVehicleManager
     {
         
-        string CreateVehicle(Vehicle vehicle);
-        string UpdateVehicle(Vehicle vehicle);
+        string CreateVehicle(Vehicles vehicle);
+        string UpdateVehicle(Vehicles vehicle);
         List<Vehicles> getAllVehicles();
+        Vehicles getVehicle(int VehicleId);
+        string DeleteVehicle(int VehicleId);
     }
 }

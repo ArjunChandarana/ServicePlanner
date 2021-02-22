@@ -12,7 +12,7 @@ namespace SP_Models
         public int ServiceBookingId { get; set; }
         public int ServiceId { get; set; }
 
-        public virtual ServiceBooking ServiceBooking { get; set; }
+        //public virtual ServiceBooking ServiceBooking { get; set; }
         public virtual Services Service { get; set; }
     }
 }
